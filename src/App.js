@@ -6,13 +6,13 @@ import { dataContext } from "./context/UserContext";
 
 
 function App() {
-  let {a} =useContext(dataContext)
+  let {recognition} =useContext(dataContext)
   return (
     <div className="main">
       <img src={ai} alt="" id="image"/>
       <span>I'm Shifra Your Advanced Assistant</span>
       <button onClick={()=>{
-
+      recognition.start()
       }}>Click here <CiMicrophoneOn /></button>
     </div>
   );
