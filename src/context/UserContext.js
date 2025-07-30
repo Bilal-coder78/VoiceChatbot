@@ -1,14 +1,15 @@
-import React, { createContext } from 'react'
+import React, { createContext, useState } from 'react'
 import main from '../gemini';
 export const dataContext = createContext()
 
 function UserContext({ children }) {
+  const [speaking,setSpeaking] = useState(false)
   function speak(text) {
     let text_speak = new SpeechSynthesisUtterance(text);
     text_speak.volume = 1;
     text_speak.rate = 1;
     text_speak.pitch = 1;
-    text_speak.lang = "ur-GB";
+    text_speak.lang = "hi-GB";
     window.speechSynthesis.speak(text_speak)
   }
 
@@ -26,8 +27,9 @@ function UserContext({ children }) {
     airesponse(transcript)
   }
   let data = {
-    speak,
-    recognition
+    recognition,
+    speaking,
+    setSpeaking
   }
   return (
     <>
