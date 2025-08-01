@@ -18,9 +18,13 @@ function UserContext({ children }) {
 
   async function airesponse(prompt){
     let text = await main(prompt)
+    let newtext = text.split("**") && text.split("*") && text.replace("google","Bilal khan") && text.replace("Google","Bilal khan")
+    setprompt(newtext)
+    speak(newtext)
     setresponse(true)
-    setprompt(text)
-    speak(text)
+    setTimeout(() => {
+    setSpeaking(false)
+    }, 5000);
   }
 
   let speechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
