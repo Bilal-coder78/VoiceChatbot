@@ -11,7 +11,7 @@
 }
 
 #image{
-    height: 70%;
+    height: 65%;
 }
 
 span{
@@ -20,6 +20,7 @@ span{
     background: linear-gradient(to right,rgb(0, 255, 251),rgb(255, 0, 106));
     background-clip: text;
     color: transparent;
+    text-align: center;
 }
 
 button{
@@ -36,4 +37,21 @@ button{
     cursor: pointer;
     background-color: rgb(84, 219, 237);
     box-shadow: 2px 2px 100px rgb(84, 219, 237);
+}
+
+.Speak{
+    width: 80px;
+}
+
+p{
+    font-size: 1.5rem;
+    color: white;
+}
+
+.responsive{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
 }

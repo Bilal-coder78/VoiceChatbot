@@ -4,6 +4,8 @@ export const dataContext = createContext()
 
 function UserContext({ children }) {
   const [speaking,setSpeaking] = useState(false)
+  const [prompt,setprompt] = useState("Listening...")
+  
   function speak(text) {
     let text_speak = new SpeechSynthesisUtterance(text);
     text_speak.volume = 1;
@@ -15,6 +17,7 @@ function UserContext({ children }) {
 
   async function airesponse(prompt){
     let text = await main(prompt)
+    setprompt(text)
     speak(text)
   }
 
@@ -23,13 +26,15 @@ function UserContext({ children }) {
   recognition.onresult = (e) => {
     let currentindex = e.resultIndex
     let transcript = e.results[currentindex][0].transcript
-    console.log(transcript)
+    setprompt(transcript)
     airesponse(transcript)
   }
   let data = {
     recognition,
     speaking,
-    setSpeaking
+    setSpeaking,
+    prompt,
+    setprompt
   }
   return (
     <>

@@ -1,12 +1,13 @@
 import "./App.css"
 import ai from "../src/assets/ai.png"
+import speakimg from "../src/assets/speak.gif"
 import { CiMicrophoneOn } from "react-icons/ci";
 import { useContext } from "react";
 import { dataContext } from "./context/UserContext";
 
 
 function App() {
-  let {recognition,speaking,setSpeaking} =useContext(dataContext)
+  let {recognition,speaking,setSpeaking,prompt} =useContext(dataContext)
   return (
     <div className="main">
       <img src={ai} alt="" id="image"/>
@@ -16,8 +17,9 @@ function App() {
       setSpeaking(true)
       recognition.start()
       }}>Click here <CiMicrophoneOn /></button>: 
-      <div>
-      
+      <div className="responsive">
+      <img src={speakimg} alt="" className="Speak"/>
+      <p>{prompt}</p>
       </div>
       }
     </div>
