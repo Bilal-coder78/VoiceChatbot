@@ -55,3 +55,8 @@ p{
     flex-direction: column;
     gap: 10px;
 }
+
+.aivoice{
+    width: 50vh;
+    height: 100px;
+}

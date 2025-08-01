@@ -5,6 +5,7 @@ export const dataContext = createContext()
 function UserContext({ children }) {
   const [speaking,setSpeaking] = useState(false)
   const [prompt,setprompt] = useState("Listening...")
+  const [response,setresponse] = useState(false)
   
   function speak(text) {
     let text_speak = new SpeechSynthesisUtterance(text);
@@ -17,6 +18,7 @@ function UserContext({ children }) {
 
   async function airesponse(prompt){
     let text = await main(prompt)
+    setresponse(true)
     setprompt(text)
     speak(text)
   }
@@ -34,7 +36,9 @@ function UserContext({ children }) {
     speaking,
     setSpeaking,
     prompt,
-    setprompt
+    setprompt,
+    response,
+    setresponse
   }
   return (
     <>
