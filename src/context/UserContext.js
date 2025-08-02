@@ -39,14 +39,14 @@ function UserContext({ children }) {
 
   function Takecommand(command) {
     if (command.includes("open") && command.includes("youtube")) {
-      window.open("https://www.youtube.com/")
+      window.open("https://www.youtube.com/","_blank")
       speak("opening youtube")
       setprompt("opening youtube")
       setTimeout(() => {
         setSpeaking(false)
       }, 5000);
     }else if (command.includes("open") && command.includes("instagram")) {
-      window.open("https://www.instagram.com/")
+      window.open("https://www.instagram.com/","_blank")
       speak("opening instagram")
       setprompt("opening instagram")
       setTimeout(() => {
