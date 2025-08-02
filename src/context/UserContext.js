@@ -33,7 +33,6 @@ function UserContext({ children }) {
     let currentindex = e.resultIndex
     let transcript = e.results[currentindex][0].transcript
     setprompt(transcript)
-    airesponse(transcript)
     Takecommand(transcript.toLowerCase())
   }
 
@@ -42,6 +41,7 @@ function UserContext({ children }) {
       window.open("https://www.youtube.com/","_blank")
       speak("opening youtube")
       setprompt("opening youtube")
+      setresponse(false)
       setTimeout(() => {
         setSpeaking(false)
       }, 5000);
@@ -49,6 +49,7 @@ function UserContext({ children }) {
       window.open("https://www.instagram.com/","_blank")
       speak("opening instagram")
       setprompt("opening instagram")
+      setresponse(false)
       setTimeout(() => {
         setSpeaking(false)
       }, 5000);
